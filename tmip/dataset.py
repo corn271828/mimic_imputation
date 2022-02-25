@@ -55,6 +55,14 @@ def _impute_series_data(series_data):
   return series_data.reshape(original_shape)
 
 def _preprocess_series_data(series_data):
+  ''' Takes in a 3-dimensional data structure, 
+  replaces outliers with np.nan, then replaces 
+  nans with the mean along axis=0.
+  
+  Keyword arguments:
+  series_data -- 3-dimensional numpy array
+  '''
+  
   # filtering outlier
   series_data[series_data == 9999999] = np.nan
 
